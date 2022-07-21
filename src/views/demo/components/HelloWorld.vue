@@ -2,9 +2,9 @@
   <div class="box">
     <div style="font-weight: bold"><slot name="title">default title</slot></div>
     <div>
-      <slot name="list">
+      <slot name="content" v-bind:infoList="list">
         <ol>
-          <li v-for="item in list">{{ item.name }} {{ item.age }}</li>
+          <li v-for="item in list" :key="item.id">{{ item.name }} {{ item.age }}</li>
         </ol>
       </slot>
     </div>
@@ -17,11 +17,11 @@ export default {
     plist: {
       type: Array,
       default: () => [],
-    },
+    }
   },
   data() {
     return {
-      list: [{ name: 'Tom', age: 20 }],
+      list: [{id: 1, name: 'Tom', age: 20 }],
     };
   },
   created() {
@@ -30,7 +30,7 @@ export default {
   mounted() {
     console.log('mounted');
     let self = this;
-    if (self.plist && plist.length > 0) {
+    if (self.plist && self.plist.length > 0) {
       self.list = self.plist;
     }
   },

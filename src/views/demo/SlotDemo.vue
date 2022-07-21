@@ -1,6 +1,11 @@
 <template>
-  <HelloWorld :plist="myList">
-    <template v-slot:title> new title </template>
+  <HelloWorld :plist="olist">
+    <template v-slot:title> new title </template> 
+    <template v-slot:content="{infoList}">
+      <ol>
+        <li v-for="item in infoList" :key="item.id">{{ item.age }} {{ item.name }}</li>
+      </ol>
+    </template>
   </HelloWorld>
 </template>
 
@@ -13,9 +18,12 @@ export default {
   },
   data() {
     return {
-      myList: [{name:'Jack',age:22}]
+      olist: [{id:1, name:'Jack', age:22}]
     };
   },
+  created(){
+    console.log('created')
+  }
 };
 </script>
 

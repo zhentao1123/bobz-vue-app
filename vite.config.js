@@ -127,6 +127,21 @@ export default defineConfig({
       // keepNames: true
     },
   },
+
+  css: {
+    preprocessorOptions: {
+      scss: {
+        /*
+				引入comm.scss全局预定义变量，
+				如果引入多个文件，
+				可以使用
+				'@import "@/assets/scss/globalVariable1.scss";@import "@/assets/scss/globalVariable2.scss";'
+				这种格式
+				 */
+				additionalData: '@import "@/styles/comm.scss";'
+      }
+    }
+  }
 });
 
 //如果配置文件需要基于（serve 或 build）命令或者不同的 模式 来决定选项，则可以选择导出这样一个函数：

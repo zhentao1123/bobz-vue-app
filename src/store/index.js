@@ -1,9 +1,11 @@
 import { createStore } from 'vuex';
 
-export default createStore({
+const store = createStore({
   state() {
     return {
       author: 'bob',
     };
   },
 });
+
+export default store

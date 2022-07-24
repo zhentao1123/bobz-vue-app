@@ -6,6 +6,7 @@ import Antd from 'ant-design-vue';
 import './styles/index.scss';
 import 'ant-design-vue/dist/antd.css';
 
-import '@/permission'
+//路由鉴权处理
+import '@/permission';
 
 createApp(App).use(Antd).use(router).use(store).mount('#app');
